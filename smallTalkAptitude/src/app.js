@@ -30,7 +30,7 @@ var buildPatterns = [
 var currentQuestion = 0;
 
 function init(){
-	//Called from body 'onload'
+	//init stuff (Perhaps fetch questions from database?)
 }
 
 function nextQuestion(){

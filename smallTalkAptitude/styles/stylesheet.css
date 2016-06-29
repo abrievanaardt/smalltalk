@@ -16,16 +16,81 @@ html,body {
 	display: block;
 	float: left;
 	width: 30%;
-	height: 90%;
-	margin: auto;
+	height: 80%;
+	margin-left: 20px;
 }
-		
-#given {
-	background-color: white;
-	border: 2px solid black;
-	display: block;
+
+#currentQuestion {
+	float:left;
+	width:50%;
+	text-align: center;
+	text-decoration: underline;
+}
+
+#instructions {
+	float:left;
+	width: 50%;
+	text-align: right;
+}
+
+.subheading {
+	text-align: center;
+	margin-top: 2px;
+	text-decoration: underline;
+}
+
+.blockTool {
+	width: 75px;
+	height: 75px;
+	margin-left: 20px;
+	margin-top: 10px;
 	float: left;
-	width: 30%;
-	height: 90%;
+}
+
+.blockStack {
+	width: 45px;
+	height: 45px;
+	background-color: red;
 	margin: auto;
+	margin-top: 3px;
+}
+
+.toolButton{
+	width: 100px;
+	height: 50px;
+	display: block;
+	margin: auto;
+	margin-top: 10px;
+}
+
+.red {
+	background-color: red;
+}
+
+.orange {
+	background-color: orange;
+}
+
+.yellow {
+	background-color: yellow;
+}
+
+.green {
+	background-color: green;
+}
+
+.blue {
+	background-color: blue;
+}
+
+.indigo {
+	background-color: darkBlue;
+}
+
+.purple {
+	background-color: purple;
+}
+
+.blank {
+	background-color: white;
 }
