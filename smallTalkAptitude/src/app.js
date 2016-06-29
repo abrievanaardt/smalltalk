@@ -1,7 +1,3 @@
-var colors
-
-var number = [];
-
 /*
 	CSS colours:
 		red
@@ -34,7 +30,7 @@ var buildPatterns = [
 var currentQuestion = 0;
 
 function init(){
-	//init stuff (Perhaps fetch questions from database?)
+	//Called from body 'onload'
 }
 
 function nextQuestion(){
@@ -43,7 +39,5 @@ function nextQuestion(){
 }
 
 function drawArrays(){
-	for (var i = 0; i < givenPatterns[currentQuestion].length; i++){
-		document.getElementById("given").addElement;
-	}
+	
 }

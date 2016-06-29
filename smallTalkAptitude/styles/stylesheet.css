@@ -1,0 +1,31 @@
+html,body {
+	ground-color: grey;
+	height: 100%;
+	margin: 0px;
+}
+		
+#holder {
+	margin: 0px;
+	height: 100%;
+	padding: 5px;
+}
+		
+#tools, #build, #given {
+	background-color: white;
+	border: 2px solid black;
+	display: block;
+	float: left;
+	width: 30%;
+	height: 90%;
+	margin: auto;
+}
+		
+#given {
+	background-color: white;
+	border: 2px solid black;
+	display: block;
+	float: left;
+	width: 30%;
+	height: 90%;
+	margin: auto;
+}
