@@ -1,0 +1,18 @@
+Variables
+	Assignment
+
+Control structures
+	Conditionals
+	Iteration/Recursion
+	Sequence
+
+Data structures
+	Vectors
+	Linked lists
+
+Syntax
+	Type
+	Name
+	Structure ( {, ;, }, (, ), etc )
+
+Concurrency (?)
