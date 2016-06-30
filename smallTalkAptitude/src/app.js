@@ -11,7 +11,7 @@
 
 var credits = [];
 
-var optimal = [95,96];
+var optimal = [];
 
 //Patterns to be constructed
 var givenPatterns = [
@@ -23,14 +23,17 @@ var givenPatterns = [
 					];
 					
 //Patterns being constructed
-var buildPatterns = [
+var initBuildPatterns = [
 						["purple"],	//Question 1
 						[],	//Question 2
 						["red", "orange", "green", "orange", "orange", "green", "orange"],	//Question 3
 						["red", "orange", "green", "orange", "orange", "green", "orange"],	//Question 4
 						["red", "orange", "green", "orange", "orange", "green", "orange"]	//Question 5
 					];
-					
+	
+var buildPatterns = [];
+buildPatterns.concat(initBuildPatterns);
+
 var marked = [];
 
 var currentQuestion = 0;
@@ -194,4 +197,15 @@ function addColor(element){
 		update();
 	}
 	else alert("Build stack is full");
+}
+
+function resetQuestion(){
+    credits[currentQuestion] = 100;
+    newMarkedArray();
+    
+    for(var i = 0; i < 10; i++){
+		document.getElementById("B"+i).style.border = "0px";
+		document.getElementById("B"+i).className = "blockStack " + "blank";		
+    }
+    
 }
