@@ -182,24 +182,45 @@ articleElement.appendChild(lineBreak());
 /**NB linebreak must be cloned because a single node cannot be added to the
 DOM more than once.
 **/
-
+//30/06/2016 - Editions
 var q2QuestionDiv = protoDivCleared.cloneNode(true);
 var q2QuestionLabel = protoLabel.cloneNode(true);
 q2QuestionLabel.innerHTML = "Given the table above where the first row values " +
     "represent the index or position of the character in a String formed by the " +
-    "inorder sequence of the characters in the second row. Use the dropdown below " +
-    "to construct the String that results from running the below instructions:";
+    "inorder sequence of the characters in the second row. Follow the instructions below to construct a word. <br>" +
+    "<b>Rule: </b> Follow instruction in sequential line by line, starting from line one. If instructed to jump to a " +
+    " given line, start of by following that instruction, and refollow instrunction from that line. After the last" +
+    " instruction line, use the option boxes to create the word formed by following the instruction:";
 q2QuestionDiv.appendChild(q2QuestionLabel);
 articleElement.appendChild(q2QuestionDiv);
 articleElement.appendChild(lineBreak())
 
-var finalStringSize = 8;
+var keys = [23, 11, 7, 13, 30, 17, 26, 3, 9, 27];
+var word = "NQOBIZWE";
+var keysString = "{";
+for (index = 0; index < keys.length; index++) {
+    keysString += keys[index];
+    if (index < keys.length - 1) {
+        keysString += ", ";
+    } else {
+        keysString += "}";
+    }
+}
 
-var codeLines = ["Given to you<br> &#09;  - String called <b>name</b>, currently empty" +
-    "<br>&#09;  - Number called <b>key</b> currently sent to <i>0</i> <br>  - A constant Number called <b>size</b> with the value " + finalStringSize,
-    "<em>if</em>: <b>key</b> is less than 8 move to following instruction line or end all precesses",
-    "\\ttake the value of <b>key</b> add <b>1</b> to the value (note: this won't change value of <b>key</b>)",
-    "\\ttake the value calculated above"];
+var N = stringArray.length;
+
+var codeLines = ["Move to instruction line 2", "Given a set of <b><i>i</i></b> values: " + keysString,
+    "<b><i>N</i></b> is the number of elements in table which is " + N + " and will be used in an equation to follow. ",
+    "Given the equation: <b>(<i>i</i> + 2) % N</b> where % is the modulo operator.",
+    "Starting with the first value <b><i>i</i></b> in the set given in 2 and moving in sequential order from " + keys[0] + " to " + keys[keys.length - 1] +
+    " using each <b><i>i</i></b> values with each iteration (instruction to be given below).",
+    "<b><i>If</i></b> there is still a value <b><i>i</i></b> in set given in 2 not used in the equation below, move to the instruction line that follows the current one, otherwise <b><i>Jump</i></b> to tinstruction line 10",
+    "Calculate result <b><i>r</i></b> using the equation given in 5 and the <b><i>i</i></b> values currently in sequence (use just one <b><i>i</i></b> value, one that is current in sequence).",
+    "Get character that is below the number equaling to the <b><i>r</i></b> value calculated above (Note: by below meaning the number and character are in same column)." +
+    "Add the character value chosen above to the word <b><i>w</i></b> such that it add up to the characters already in the word (concatinate).",
+    "<b><i>Jump</i></b> back to instruction line 6, and this time use the next <b><i>i</i></b> value in the set when following instructions",
+    "Iteration is now complete, meaning you have used all <b><i>i</i></b> values in the set in line 2 in the equation given in like 5. " +
+    "Now create the word formed by following the instruction using the option boxes by order of the word such that the word and the combinations selected below form the same word."];
 var q2SudoDiv = protoDivCleared.cloneNode(true);
 
 for (index = 0; index < codeLines.length; index++) {
@@ -207,14 +228,14 @@ for (index = 0; index < codeLines.length; index++) {
     codeLine.innerHTML = (index + 1) + ") " + codeLines[index];
     codeLine.style.display = "block";
     if (index % 2 == 0) {
-        codeLine.style.backgroundColor = "#D3D3D3";
+        codeLine.style.backgroundColor = "#87ceeb";
     }
     q2SudoDiv.appendChild(codeLine);
 }
 
 articleElement.appendChild(q2SudoDiv);
-articleElement.appendChild(lineBreak())
-
+articleElement.appendChild(lineBreak());
+//END OF EDITIONS
 //Creating dropBox to be used as prototype for all other boxes
 var dropBox = document.createElement('select');
 dropBox.width = "35px";
@@ -228,7 +249,7 @@ for (index = 0; index < stringArray.length; index++) {
 }
 
 var q2AnswerDiv = protoDivCleared.cloneNode(true);
-for (index = 0; index < finalStringSize; index++) {
+for (index = 0; index < keys.length; index++) {
     var drop = dropBox.cloneNode(true);
     drop.id = "char" + (index + 1);
     q2AnswerDiv.appendChild(drop);
@@ -268,8 +289,9 @@ articleElement.appendChild(treeDefDiv);
 var treeImgDiv = protoDivCleared.cloneNode(true);
 treeImgDiv.style.backgroundImage = "url('images//tree.png')";
 treeImgDiv.style.backgroundSize = "400px 242px";
-treeImgDiv.style.width = "400px";
 treeImgDiv.style.height = "242px";
+treeImgDiv.style.backgroundPosition = "center";
+treeImgDiv.style.backgroundRepeat = "no-repeat";
 
 articleElement.appendChild(treeImgDiv);
 
