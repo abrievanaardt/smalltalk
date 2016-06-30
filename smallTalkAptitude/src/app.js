@@ -106,11 +106,11 @@ function update(){	//Called each time an action is performed
 			var divs = [];
 			
 			resultsWindow.style.visibility = "visible";
-			documents.getElementById("cover").visibility = "hidden";
+			document.getElementById("cover").style.visibility = "visible";
 			
 			for(var i = 0; i < givenPatterns.length; i++){
 				divs[i] = document.createElement("DIV");
-				divs[i].innerHTML = "Question " + (i+1) + ":\t" + credits[i];
+				divs[i].innerHTML = "Question " + (i+1) + ":" + credits[i];
 				resultsWindow.appendChild(divs[i]);
 			}
 		}
