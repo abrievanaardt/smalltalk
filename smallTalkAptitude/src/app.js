@@ -107,7 +107,6 @@ function doRepeat(){
 				if(marked[i] == 1){
 					buildPatterns[currentQuestion].push(buildPatterns[currentQuestion][i]);
 					marked.push(0);
-					currentBuildBlock++;
 				}
 			}
 			drawArray(buildPatterns[currentQuestion], BUILD);
@@ -121,7 +120,7 @@ function doRepeat(){
 function addColor(element){
 	var square;
 	
-	if(givenPatterns[currentQuestion].length-buildPatterns[currentQuestion].length > 0){
+	if(buildPatterns[currentQuestion].length < givenPatterns[currentQuestion].length){
 		buildPatterns[currentQuestion].push(element.className.split(" ")[1]);
 		marked.push(0);
 		drawArray(buildPatterns[currentQuestion], BUILD);
