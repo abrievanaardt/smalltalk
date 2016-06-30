@@ -31,8 +31,10 @@ var initBuildPatterns = [
 						["red", "orange", "green", "orange", "orange", "green", "orange"]	//Question 5
 					];
 	
+
 var buildPatterns = [];
-buildPatterns.concat(initBuildPatterns);
+
+initialiseBuildPatterns();
 
 var marked = [];
 
@@ -47,6 +49,15 @@ function init(){
 
 	doQuestion();
 	
+}
+
+function initialiseBuildPatterns(){
+    for (i = 0; i < initBuildPatterns.length; i++) {
+        buildPatterns.push([]);
+        for (j = 0; j < initBuildPatterns[i].length; j++){
+            buildPatterns[i].push(initBuildPatterns[i][j]);        
+        }
+    }
 }
 
 function doQuestion(){
@@ -107,8 +118,7 @@ function update(){	//Called each time an action is performed
 }
 
 function checkAnswer(){	
-	if (buildPatterns[currentQuestion].length == givenPatterns[currentQuestion].length){
-		
+	if (buildPatterns[currentQuestion].length == givenPatterns[currentQuestion].length){		
 		for(var i = 0; i < buildPatterns[currentQuestion].length; i++){
 			if(buildPatterns[currentQuestion][i] != givenPatterns[currentQuestion][i]){
 				return false;
@@ -200,12 +210,13 @@ function addColor(element){
 }
 
 function resetQuestion(){
-    credits[currentQuestion] = 100;
+    console.log("I got called");
+    credits[currentQuestion] = 100;    
+    initialiseBuildPatterns();
     newMarkedArray();
     
     for(var i = 0; i < 10; i++){
 		document.getElementById("B"+i).style.border = "0px";
 		document.getElementById("B"+i).className = "blockStack " + "blank";		
-    }
-    
+    }    
 }

@@ -60,6 +60,7 @@ html,body {
 }
 
 #results{
+    color: white;
     width:300px;
     height:200px;
     position:absolute;
