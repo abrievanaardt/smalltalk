@@ -1,0 +1,39 @@
+﻿body {
+    background-color:black;
+}
+#container {
+    margin-left:auto;
+    margin-right:auto;
+    background-color:white;
+    width:80%;
+    border-radius:8px;
+    position:relative;
+}
+
+header {
+    text-align:center;
+    padding: 5px;
+}
+
+article {
+    float:left;
+}
+
+article, aside, nav, footer {
+    padding: 5px;
+}
+
+aside {
+    background-color:white;
+    height:100%;
+}
+
+nav, footer {
+    height:40px;
+    background-color:cadetblue;
+    clear:both;
+}
+footer {
+    border-bottom-left-radius:8px;
+    border-bottom-right-radius:8px;
+}
