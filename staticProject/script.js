@@ -312,8 +312,8 @@ for (index = 0; index < treeNumbers.length; index++) {
     }
 }
 numberLabel.innerHTML += "Insert these numbers to the tree using the rules defined above" +
-    ", then use the selection boxes below to indicated the nodes in which each number will be located. " +
-    "Note that one node will be left empty, this should be indicated by having no value assigned to the node.<br>";
+    ", then use the selection boxes below to indicated the circles in which each number will be located. " +
+    "Note that one circle will be left empty, this should be indicated by having no value assigned to the circle and the letter in the circle being left as the answer.<br>";
 articleElement.appendChild(numberLabel);
 
 var q3AnswersDiv = protoDivCleared.cloneNode(true);
@@ -358,5 +358,67 @@ buttonDiv.appendChild(btnSubmit);
 articleElement.appendChild(buttonDiv);
 
 btnSubmit.onclick =  function(){
+    logic();
     articleElement.innerHTML = "";
+}
+
+//Logic function
+
+var scoreQ1, scoreQ2, scoreQ3;
+
+function logic(){
+    var score = 0;
+    var ansBoxA = document.getElementById("answerA").value;
+    var ansBoxB = document.getElementById("answerB").value;
+    var ansBoxC = document.getElementById("answerC").value;
+    var arrQ1In = [ansBoxA, ansBoxB, ansBoxC];
+    var arrQ1Ans = [9, 14, 13];
+    var totalQ1 = 0;
+    for (var i = 0; i<3; i++){
+        if (arrQ1In[i] == arrQ1Ans[i]){
+            score++;
+        }
+        totalQ1 += parseInt(arrQ1In[i]);
+    }
+    if (totalQ1 == 36){
+        score++;
+    }
+    scoreQ1 = (score/4)*100;
+    
+    score=0;
+    var c1 = document.getElementById("char1").value;
+    var c2 = document.getElementById("char2").value;
+    var c3 = document.getElementById("char3").value;
+    var c4 = document.getElementById("char4").value;
+    var c5 = document.getElementById("char5").value;
+    var c6 = document.getElementById("char6").value;
+    var c7 = document.getElementById("char7").value;
+    var c8 = document.getElementById("char8").value;
+    var c9 = document.getElementById("char9").value;
+    var c10 = document.getElementById("char10").value;
+    var cArr = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10];
+    var q2AnsArr = ['N', 'Q', 'O', 'B', 'I', 'Z', 'W', 'E', 'J', 'X'];
+    for (var i=0; i<10; i++){
+        if (cArr[i] == q2AnsArr[i]){
+            score++;
+        }
+    }
+    if (score == 10){
+        score++;
+    }
+    scoreQ2 = (score/11)*100;
+    
+    score = 0;
+    var arrQ3In = [];
+    var arrQ3Ans = [22, 12, 33, 10, 22, 30, 47, 1, 'I', 12, 22, 27, 32, 46, 58];
+    //arrQ3In.push("a")
+    for (var i=0; i<15; i++){
+        var letter = String.fromCharCode(i+65);
+        letter = "numAnswer" + letter;
+        arrQ3In.push(document.getElementById(letter).value);
+        if (arrQ3In[i] == arrQ3Ans[i]){
+            score++;
+        }
+    }
+    scoreQ3 = (score/15)*100;
 }
