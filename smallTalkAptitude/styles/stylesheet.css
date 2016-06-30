@@ -46,7 +46,7 @@ html,body {
 }
 
 #cover{
-    visibility: visible;
+    visibility: hidden;
     position:fixed;
     padding:0;
     margin:0;

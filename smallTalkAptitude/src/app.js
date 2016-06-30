@@ -92,6 +92,7 @@ function update(){	//Called each time an action is performed
 			var divs = [];
 			
 			resultsWindow.style.visibility = "visible";
+			documents.getElementById("cover").visibility = "hidden";
 			
 			for(var i = 0; i < givenPatterns.length; i++){
 				divs[i] = document.createElement("DIV");
