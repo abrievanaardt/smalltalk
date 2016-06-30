@@ -13,8 +13,8 @@ var credits = [];
 
 //Patterns to be constructed
 var givenPatterns = [
-						["purple", "orange", "green", "orange", "orange", "green", "orange"],	//Question 1
-						["red", "orange", "green", "orange", "orange", "green", "orange"],	//Question 2
+						["purple", "orange", "green", "orange", "green", "orange", "green"],	//Question 1
+						["blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue"],	//Question 2
 						["red", "orange", "green", "orange", "orange", "green", "orange"],	//Question 3
 						["red", "orange", "green", "orange", "orange", "green", "orange"],	//Question 4
 						["red", "orange", "green", "orange", "orange", "green", "orange"]	//Question 5
@@ -23,7 +23,7 @@ var givenPatterns = [
 //Patterns being constructed
 var buildPatterns = [
 						["purple"],	//Question 1
-						["red", "orange", "green", "orange", "orange", "green", "orange"],	//Question 2
+						[],	//Question 2
 						["red", "orange", "green", "orange", "orange", "green", "orange"],	//Question 3
 						["red", "orange", "green", "orange", "orange", "green", "orange"],	//Question 4
 						["red", "orange", "green", "orange", "orange", "green", "orange"]	//Question 5
@@ -39,11 +39,6 @@ function init(){
 	for(var i = 0; i < givenPatterns.length; i++){
 		credits.push(100);
 	}
-	
-	//Initialize marked array
-	for(var i = 0; i < buildPatterns[currentQuestion].length; i++){
-		marked.push(0);
-	}
 
 	doQuestion();
 	
@@ -56,7 +51,26 @@ function doQuestion(){
 
 function nextQuestion(){
 	document.getElementById("currentQuestion").innerHTML = "Question " + (currentQuestion+1);
+	clearAllStacks();
+	newMarkedArray();
 	drawGivenArray();
+}
+
+function newMarkedArray(){
+	marked = [];
+	
+	//Initialize marked array
+	for(var i = 0; i < buildPatterns[currentQuestion].length; i++){
+		marked.push(0);
+	}
+}
+
+function clearAllStacks(){
+	for(var i = 0; i < 10; i++){
+		document.getElementById("B"+i).style.border = "0px";
+		document.getElementById("B"+i).className = "blockStack " + "blank";
+		document.getElementById("G"+i).className = "blockStack " + "blank";
+	}
 }
 
 function update(){	//Called each time an action is performed
