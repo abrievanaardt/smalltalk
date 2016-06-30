@@ -1,5 +1,5 @@
 html,body {
-	ground-color: grey;
+	background-color: grey;
 	height: 100%;
 	margin: 0px;
 }
@@ -33,6 +33,22 @@ html,body {
 	text-align: right;
 }
 
+#containerFrom {
+	width: 175px;
+	height: 175px;
+	display: block;
+	float: left;
+	margin-left: 10px;
+}
+
+#containerTo {
+	width: 175px;
+	height: 175px;
+	display: block;
+	float: right;
+	margin-right: 10px;
+}
+
 .subheading {
 	text-align: center;
 	margin-top: 2px;
@@ -47,15 +63,30 @@ html,body {
 	float: left;
 }
 
+.blockPick {
+	width: 45px;
+	height: 45px;
+	margin-left: 10px;
+	margin-top: 5px;
+	float: left;
+}
+
 .blockStack {
 	width: 45px;
 	height: 45px;
-	background-color: red;
 	margin: auto;
 	margin-top: 3px;
 }
 
-.toolButton{
+.toolButton {
+	width: 100px;
+	height: 50px;
+	display: block;
+	margin: auto;
+	margin-top: 10px;
+}
+
+.toolButton {
 	width: 100px;
 	height: 50px;
 	display: block;

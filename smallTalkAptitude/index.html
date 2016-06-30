@@ -35,17 +35,37 @@
 		<div id="tools">
 			<div id="colourSelect">
 				<h2 id="toolsHeading" class="subheading">Tools</h2>
-				<div class="blockTool red"></div>
-				<div class="blockTool orange"></div>
-				<div class="blockTool yellow"></div>
-				<div class="blockTool green"></div>
-				<div class="blockTool blue"></div>
-				<div class="blockTool indigo"></div>
-				<div class="blockTool purple"></div>
-				<div class="blockTool blank"></div>
+				<div class="blockTool red" onclick="addColor(this)"></div>
+				<div class="blockTool orange" onclick="addColor(this)"></div>
+				<div class="blockTool yellow" onclick="addColor(this)"></div>
+				<div class="blockTool green" onclick="addColor(this)"></div>
+				<div class="blockTool blue" onclick="addColor(this)"></div>
+				<div class="blockTool indigo" onclick="addColor(this)"></div>
+				<div class="blockTool purple" onclick="addColor(this)"></div>
+				<div class="blockTool blank" onclick="addColor(this)"></div>
 			</div>
 			<input type="button" value="Repeat" class="toolButton"></input>
 			<input type="button" value="Switch" class="toolButton"></input>
+			<div id="containerFrom" class="switchPick">
+				<div class="blockPick red"></div>
+				<div class="blockPick orange"></div>
+				<div class="blockPick yellow"></div>
+				<div class="blockPick green"></div>
+				<div class="blockPick blue"></div>
+				<div class="blockPick indigo"></div>
+				<div class="blockPick purple"></div>
+				<div class="blockPick blank"></div>
+			</div>
+			<div id="containerTo" class="switchPick">
+				<div class="blockPick red"></div>
+				<div class="blockPick orange"></div>
+				<div class="blockPick yellow"></div>
+				<div class="blockPick green"></div>
+				<div class="blockPick blue"></div>
+				<div class="blockPick indigo"></div>
+				<div class="blockPick purple"></div>
+				<div class="blockPick blank"></div>
+			</div>
 		</div>
 		
 		<div id="build">
