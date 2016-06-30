@@ -22,7 +22,7 @@ var givenPatterns = [
 					
 //Patterns being constructed
 var buildPatterns = [
-						["yellow"],	//Question 1
+						["purple"],	//Question 1
 						["red", "orange", "green", "orange", "orange", "green", "orange"],	//Question 2
 						["red", "orange", "green", "orange", "orange", "green", "orange"],	//Question 3
 						["red", "orange", "green", "orange", "orange", "green", "orange"],	//Question 4
@@ -34,20 +34,29 @@ var marked = [];
 var currentQuestion = 0;
 
 function init(){
+	
+	//Initialize credits array
 	for(var i = 0; i < givenPatterns.length; i++){
 		credits.push(100);
 	}
 	
+	//Initialize marked array
 	for(var i = 0; i < buildPatterns[currentQuestion].length; i++){
 		marked.push(0);
 	}
-	drawGivenArray();
+
+	doQuestion();
+	
+}
+
+function doQuestion(){
+	nextQuestion();
 	update();
 }
 
 function nextQuestion(){
-	currentQuestion++;
-	document.getElementById("questionNumber").innerHTML = "Question " + (currentQuestion+1);
+	document.getElementById("currentQuestion").innerHTML = "Question " + (currentQuestion+1);
+	drawGivenArray();
 }
 
 function update(){	//Called each time an action is performed
@@ -56,9 +65,31 @@ function update(){	//Called each time an action is performed
 	for(var i = 0; i < buildPatterns[currentQuestion].length; i++){
 		document.getElementById("B"+i).className = "blockStack " + buildPatterns[currentQuestion][i];
 	}
+	
+	if(checkAnswer()){
+		currentQuestion++;
+		if(currentQuestion < givenPatterns.length){
+			doQuestion();
+		}
+	}
+}
+
+function checkAnswer(){	
+	if (buildPatterns[currentQuestion].length == givenPatterns[currentQuestion].length){
+		
+		for(var i = 0; i < buildPatterns[currentQuestion].length; i++){
+			if(buildPatterns[currentQuestion][i] != givenPatterns[currentQuestion][i]){
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	else return false;	
 }
 
 function drawGivenArray(){	//Only called for new questions
+	console.log(currentQuestion);
 	for(var i = 0; i < givenPatterns[currentQuestion].length; i++){
 		document.getElementById("G"+i).className = "blockStack " + givenPatterns[currentQuestion][i];
 	}
