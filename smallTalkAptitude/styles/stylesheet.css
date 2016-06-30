@@ -18,6 +18,8 @@ html,body {
 	margin-left: 20px;
 }
 
+
+
 #currentQuestion {
 	float:left;
 	width:50%;
@@ -39,8 +41,8 @@ html,body {
 	margin-left: 10px;
 }
 
-#credits{
-        float: right;
+#resetButton{
+    float: right;
 }
 
 #containerTo {
