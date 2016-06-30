@@ -23,7 +23,7 @@ html,body {
 #currentQuestion {
 	float:left;
 	width:50%;
-	text-align: left;
+	text-align: center;
 	text-decoration: underline;
 }
 

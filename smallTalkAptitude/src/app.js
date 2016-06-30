@@ -15,9 +15,9 @@ var optimal = [];
 
 //Patterns to be constructed
 var givenPatterns = [
-						["purple", "orange", "green", "orange", "green", "orange", "green"],	//Question 1
+						["purple", "orange", "green", "orange", "green", "orange", "green"],		//Question 1
 						["blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue"],	//Question 2
-						["red", "orange", "green", "orange", "orange", "green", "orange"],	//Question 3
+						["green", "green", "red", "green", "green", "blue"],						//Question 3
 						["red", "orange", "green", "orange", "orange", "green", "orange"],	//Question 4
 						["red", "orange", "green", "orange", "orange", "green", "orange"]	//Question 5
 					];
@@ -25,8 +25,8 @@ var givenPatterns = [
 //Patterns being constructed
 var initBuildPatterns = [
 						["purple"],	//Question 1
-						[],	//Question 2
-						["red", "orange", "green", "orange", "orange", "green", "orange"],	//Question 3
+						[],			//Question 2
+						["red", "red", "green", "blue", "blue", "yellow"],	//Question 3
 						["red", "orange", "green", "orange", "orange", "green", "orange"],	//Question 4
 						["red", "orange", "green", "orange", "orange", "green", "orange"]	//Question 5
 					];
@@ -175,18 +175,28 @@ function toColor(element){
 }
 
 function doSwitch(){
-	if( (fromColor != null) && (toColor != null) ){
+
+	if( (fromColorVar != null) && (toColorVar != null) ){
 		for(var i = 0; i < buildPatterns[currentQuestion].length; i++){
-			if(buildPatterns[currentQuestion][i] == fromColor){
-				buildPatterns[currentQuestion][i] = toColor;
+			if(buildPatterns[currentQuestion][i] == fromColorVar){
+				buildPatterns[currentQuestion][i] = toColorVar;
 			}
 		}
-		fromColor = null;
-		toColor = null;
-		//clearToolHighlights();
+		fromColorVar = null;
+		toColorVar = null;
+		clearToolHighlights();
 	}
 	
+	credits[currentQuestion]--;
 	update();
+}
+
+function clearToolHighlights(){
+	var toClear = document.getElementsByClassName("blockPick");
+	
+	for(var i = 0; i < toClear.length; i++){
+		toClear[i].style.border = "0px";
+	}
 }
 
 function empty(array){
@@ -225,7 +235,6 @@ function doRepeat(){
 		}
 		else alert("Select colours to repeat from 'build' field.");
 	}
-	
 		
 }
 
