@@ -41,10 +41,8 @@ function init(){
 	for(var i = 0; i < buildPatterns[currentQuestion].length; i++){
 		marked.push(0);
 	}
-	
 	drawGivenArray();
 	update();
-	
 }
 
 function nextQuestion(){
