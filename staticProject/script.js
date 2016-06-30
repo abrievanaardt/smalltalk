@@ -260,8 +260,8 @@ q3Subheading.innerText = "The below question test your understanding of data str
 articleElement.appendChild(q3Subheading);
 
 var treeDefDiv = protoDivCleared.cloneNode(true);
-treeDefDiv.innerHTML = "A <b>Tree</b> is a data structure accessed beginning at the root node. Each node is" +
-    " either a leaf or an internal node. An internal node has one or more child nodes and is called the parent of its child nodes.";
+treeDefDiv.innerHTML = "Starting with circle A having the value of 22 in it (the first value in the list given below), work through the list" +
+    " in the given order and fill in the circles with the required numbers according to the following instructions:<br><br>";
 
 articleElement.appendChild(treeDefDiv);
 
@@ -277,7 +277,10 @@ var treeNumbers = [22, 33, 12, 10, 22, 1, 47, 58, 12, 22, 30, 46, 27, 32];
 var labels = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"];
 
 var numberLabel = protoLabel.cloneNode(true);
-numberLabel.innerHTML = "<b>Given the number set:</b> <br> \t{";
+numberLabel.innerHTML = "<br>Compare the given value to the value in the top circle and then work down.<br>If the value is less than or equal to the value above it, place it on the left side of the branch.<br>If the value is greater than the value above it, place it on the right side of the branch.<br><br>";
+numberLabel.innerHTML += "For example: Start with A (equal to 22) as the first reference number and compare the next value in the list (33) to it.<br>If it is less or equal place it on the left side and if it is more place it on the right side in the circle below.<br>If the circle below it already contains a number compare the value you are working with to this new number and then place it on either the left or right circle below according to the rules.<br>";
+
+numberLabel.innerHTML += "<br><b>Given the number set:</b> <br> \t{";
 for (index = 0; index < treeNumbers.length; index++) {
     numberLabel.innerHTML += treeNumbers[index];
     if (index < treeNumbers.length - 1) {
@@ -287,8 +290,8 @@ for (index = 0; index < treeNumbers.length; index++) {
     }
 }
 numberLabel.innerHTML += "Insert these numbers to the tree using the rules defined above" +
-    ", then used the selection boxes below to indicated the nodes in which each number will be located." +
-    "Note that one node will be left empty, this should be indicated by having no value assigned to the node";
+    ", then use the selection boxes below to indicated the nodes in which each number will be located. " +
+    "Note that one node will be left empty, this should be indicated by having no value assigned to the node.<br>";
 articleElement.appendChild(numberLabel);
 
 var q3AnswersDiv = protoDivCleared.cloneNode(true);
