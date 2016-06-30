@@ -131,7 +131,6 @@ function checkAnswer(){
 }
 
 function drawGivenArray(){	//Only called for new questions
-	console.log(currentQuestion);
 	for(var i = 0; i < givenPatterns[currentQuestion].length; i++){
 		document.getElementById("G"+i).className = "blockStack " + givenPatterns[currentQuestion][i];
 	}
@@ -210,13 +209,20 @@ function addColor(element){
 }
 
 function resetQuestion(){
-    console.log("I got called");
     credits[currentQuestion] = 100;    
-    initialiseBuildPatterns();
-    newMarkedArray();
     
-    for(var i = 0; i < 10; i++){
-		document.getElementById("B"+i).style.border = "0px";
-		document.getElementById("B"+i).className = "blockStack " + "blank";		
-    }    
+    for(var i = 0; i < buildPatterns[currentQuestion].length; i++){
+	document.getElementById("B"+i).className = "blockStack blank";
+    }
+    
+    buildPatterns[currentQuestion] = [];
+    for (j = 0; j < initBuildPatterns[currentQuestion].length; j++){
+        buildPatterns[currentQuestion].push(initBuildPatterns[currentQuestion][j]);        
+    }
+    
+    
+        
+    newMarkedArray();    
+    update();
+    update();
 }
