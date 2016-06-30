@@ -39,8 +39,7 @@ function init(){
 		marked.push(0);
 	}
 		drawArray(givenPatterns[currentQuestion],GIVEN);
-		drawArray(buildPatterns[currentQuestion],BUILD);
-	
+		drawArray(buildPatterns[currentQuestion],BUILD);	
 }
 
 function nextQuestion(){
