@@ -1,4 +1,4 @@
-﻿// QUESTION 1
+// QUESTION 1
 var boxes = [["a", "A", "Red", "answerA"], ["b", "B", "Blue", "answerB"], ["c", "C", "Green", "answerA"]];
 
 // Globally shared objects - used as prototypes for cloning
@@ -71,8 +71,15 @@ subtitleElement.style.clear = "both";
 subtitleElement.innerText = "This question test your understanding and ability of using " +
     "storage locations, thus memory locations and pointers.";
 var questionElement = protoLabel.cloneNode(true);
-questionElement.innerHTML = "Given the boxes above, give the resulting number of items at the end of the scenario " +
-    "described below:";
+questionElement.innerHTML = "Given the boxes above and the following information, give the " +
+    "resulting number of items in each box at the end of the scenario " +
+    "described below:<br><br>" + 
+    "You start with <b>23</b> apples.<br>" +
+    "<b>7</b> apples are placed in box <b>A</b>, <b>9</b> in box <b>C</b> and the remainder in box <b>B</b>.<br>" +
+    "<b>12</b> more apples are then added to box <b>B</b>.<br>" +
+    "<b>3</b> apples are moved from box <b>A</b> to box <b>C</b>.<br>" +
+    "<b>5</b> apples are then moved from box <b>B</b> to box <b>A</b>.<br>" +
+    "Finally, <b>1</b> apple is added to box <b>C</b>.<br>";
 var q1QuestionDiv = protoDivCleared.cloneNode(true);
 q1QuestionDiv.appendChild(questionElement);
 questionElement.appendChild(lineBreak());
