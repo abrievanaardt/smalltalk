@@ -300,7 +300,7 @@ var labels = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "
 
 var numberLabel = protoLabel.cloneNode(true);
 numberLabel.innerHTML = "<br>Compare the given value to the value in the top circle and then work down.<br>If the value is less than or equal to the value above it, place it on the left side of the branch.<br>If the value is greater than the value above it, place it on the right side of the branch.<br><br>";
-numberLabel.innerHTML += "For example: Start with A (equal to 22) as the first reference number and compare the next value in the list (33) to it.<br>If it is less or equal place it on the left side and if it is more place it on the right side in the circle below.<br>If the circle below it already contains a number compare the value you are working with to this new number and then place it on either the left or right circle below according to the rules.<br>";
+numberLabel.innerHTML += "For example:<br>Start with A (having a vlue of 22) as the first reference number and compare the next value in the list (33) to it.<br>If it is less or equal place it on the left side and if it is more place it on the right side in the circle below.<br>If the circle below it already contains a number compare the value you are working with to this new number and then place it on either the left or right circle below according to the rules.<br>";
 
 numberLabel.innerHTML += "<br><b>Given the number set:</b> <br> \t{";
 for (index = 0; index < treeNumbers.length; index++) {
