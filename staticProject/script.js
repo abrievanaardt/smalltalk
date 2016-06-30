@@ -1,5 +1,5 @@
 // QUESTION 1
-var boxes = [["a", "A", "Red", "answerA"], ["b", "B", "Blue", "answerB"], ["c", "C", "Green", "answerA"]];
+var boxes = [["a", "A", "Red", "answerA"], ["b", "B", "Blue", "answerB"], ["c", "C", "Green", "answerC"]];
 
 // Globally shared objects - used as prototypes for cloning
 var protoDivCleared = document.createElement('div');
