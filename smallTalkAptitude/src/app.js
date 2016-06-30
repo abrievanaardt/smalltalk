@@ -116,7 +116,7 @@ function doRepeat(){
 				}
 			}
 			credits[currentQuestion]--;
-			update(buildPatterns[currentQuestion], BUILD);
+			update();
 		}
 		else alert("Select colours to repeat from 'build' field.");
 	}
@@ -131,7 +131,7 @@ function addColor(element){
 		buildPatterns[currentQuestion].push(element.className.split(" ")[1]);
 		marked.push(0);
 		credits[currentQuestion] -= 2;
-		update(buildPatterns[currentQuestion], BUILD);
+		update();
 	}
 	else alert("Build stack is full");
 }
