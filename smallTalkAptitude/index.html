@@ -37,28 +37,28 @@
                     <div class="blockTool blue" onclick="addColor(this)">2</div>
                     <div class="blockTool indigo" onclick="addColor(this)">2</div>
                     <div class="blockTool purple" onclick="addColor(this)">2</div>
-                    <div class="blockTool blank" onclick="addColor(this)"></div>
+                    <div class="blockTool blank"></div>
                 </div>
                 <input type="button" value="Repeat (1)" class="toolButton" onclick="doRepeat()"></input>
-                <input type="button" value="Switch (1)" class="toolButton"></input>
+                <input type="button" value="Switch (1)" class="toolButton" onclick="doSwitch()"></input>
                 <div id="containerFrom" class="switchPick">
-                    <div class="blockPick red"></div>
-                    <div class="blockPick orange"></div>
-                    <div class="blockPick yellow"></div>
-                    <div class="blockPick green"></div>
-                    <div class="blockPick blue"></div>
-                    <div class="blockPick indigo"></div>
-                    <div class="blockPick purple"></div>
+                    <div class="blockPick red" onclick="fromColor(this)"></div>
+                    <div class="blockPick orange" onclick="fromColor(this)"></div>
+                    <div class="blockPick yellow" onclick="fromColor(this)"></div>
+                    <div class="blockPick green" onclick="fromColor(this)"></div>
+                    <div class="blockPick blue" onclick="fromColor(this)"></div>
+                    <div class="blockPick indigo" onclick="fromColor(this)"></div>
+                    <div class="blockPick purple" onclick="fromColor(this)"></div>
                     <div class="blockPick blank"></div>
                 </div>
                 <div id="containerTo" class="switchPick">
-                    <div class="blockPick red"></div>
-                    <div class="blockPick orange"></div>
-                    <div class="blockPick yellow"></div>
-                    <div class="blockPick green"></div>
-                    <div class="blockPick blue"></div>
-                    <div class="blockPick indigo"></div>
-                    <div class="blockPick purple"></div>
+                    <div class="blockPick red" onclick="toColor(this)"></div>
+                    <div class="blockPick orange" onclick="toColor(this)"></div>
+                    <div class="blockPick yellow" onclick="toColor(this)"></div>
+                    <div class="blockPick green" onclick="toColor(this)"></div>
+                    <div class="blockPick blue" onclick="toColor(this)"></div>
+                    <div class="blockPick indigo" onclick="toColor(this)"></div>
+                    <div class="blockPick purple" onclick="toColor(this)"></div>
                     <div class="blockPick blank"></div>
                 </div>
             </div>

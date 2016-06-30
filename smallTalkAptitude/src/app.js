@@ -40,6 +40,9 @@ var marked = [];
 
 var currentQuestion = 0;
 
+var fromColorVar = null
+var toColorVar = null;
+
 function init(){
 	
 	//Initialize credits array
@@ -48,7 +51,6 @@ function init(){
 	}
 
 	doQuestion();
-	
 }
 
 function initialiseBuildPatterns(){
@@ -145,15 +147,46 @@ function updateCredits(){
 function highlight(element){
 	var index = parseInt(element.id.charAt(1));
 	
-	if( (marked[index] == 1) && ( (index-1 < 0) || (index+1 >= buildPatterns[currentQuestion].length) || (marked[index+1] == 0)  || (marked[index-1] == 0) )){
-				element.style.border = "0px";
-				marked[parseInt(element.id.charAt(1))] = 0;
+	if(element.className != "blockStack blank"){
+		if( (marked[index] == 1) && ( (index-1 < 0) || (index+1 >= buildPatterns[currentQuestion].length) || (marked[index+1] == 0)  || (marked[index-1] == 0) )){
+			element.style.border = "0px";
+			marked[parseInt(element.id.charAt(1))] = 0;
+		}
+		else	if( (empty(marked)) || (marked[parseInt(element.id.charAt(1))+1] == 1) || (marked[parseInt(element.id.charAt(1))-1] == 1) ){
+					element.style.border = "1px solid black";
+					marked[parseInt(element.id.charAt(1))] = 1;
+				}	
+				else alert("Only adjacent squares can be selected");
+	}
+}
+
+function fromColor(element){
+	if(fromColorVar == null){
+		fromColorVar = element.className.split(" ")[1];
+		element.style.border = "1px solid black";
+	}
+}
+
+function toColor(element){
+	if(toColorVar == null){
+		toColorVar = element.className.split(" ")[1];
+		element.style.border = "1px solid black";
+	}
+}
+
+function doSwitch(){
+	if( (fromColor != null) && (toColor != null) ){
+		for(var i = 0; i < buildPatterns[currentQuestion].length; i++){
+			if(buildPatterns[currentQuestion][i] == fromColor){
+				buildPatterns[currentQuestion][i] = toColor;
 			}
-	else	if( (empty(marked)) || (marked[parseInt(element.id.charAt(1))+1] == 1) || (marked[parseInt(element.id.charAt(1))-1] == 1) ){
-				element.style.border = "1px solid black";
-				marked[parseInt(element.id.charAt(1))] = 1;
-			}	
-			else alert("Only adjacent squares can be selected");
+		}
+		fromColor = null;
+		toColor = null;
+		//clearToolHighlights();
+	}
+	
+	update();
 }
 
 function empty(array){
