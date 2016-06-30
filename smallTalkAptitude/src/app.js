@@ -9,8 +9,7 @@
 		purple
 */
 
-const GIVEN = 32;
-const BUILD = 64;
+var credits = [];
 
 //Patterns to be constructed
 var givenPatterns = [
@@ -23,7 +22,7 @@ var givenPatterns = [
 					
 //Patterns being constructed
 var buildPatterns = [
-						[],	//Question 1
+						["yellow"],	//Question 1
 						["red", "orange", "green", "orange", "orange", "green", "orange"],	//Question 2
 						["red", "orange", "green", "orange", "orange", "green", "orange"],	//Question 3
 						["red", "orange", "green", "orange", "orange", "green", "orange"],	//Question 4
@@ -35,11 +34,16 @@ var marked = [];
 var currentQuestion = 0;
 
 function init(){
+	for(var i = 0; i < givenPatterns.length; i++){
+		credits.push(100);
+	}
+	
 	for(var i = 0; i < buildPatterns[currentQuestion].length; i++){
 		marked.push(0);
 	}
-		drawArray(givenPatterns[currentQuestion],GIVEN);
-		drawArray(buildPatterns[currentQuestion],BUILD);
+	
+	drawGivenArray();
+	update();
 	
 }
 
@@ -48,20 +52,24 @@ function nextQuestion(){
 	document.getElementById("questionNumber").innerHTML = "Question " + (currentQuestion+1);
 }
 
-function drawArray(arrayIn, view){
-	var panel;
+function update(){	//Called each time an action is performed
+	updateCredits();
 	
-	if(view == GIVEN){
-		panel = "G";
+	for(var i = 0; i < buildPatterns[currentQuestion].length; i++){
+		document.getElementById("B"+i).className = "blockStack " + buildPatterns[currentQuestion][i];
 	}
+}
+
+function drawGivenArray(){	//Only called for new questions
+	for(var i = 0; i < givenPatterns[currentQuestion].length; i++){
+		document.getElementById("G"+i).className = "blockStack " + givenPatterns[currentQuestion][i];
+	}
+}
+
+function updateCredits(){
+	var creditDisplay = document.getElementById("credits");
 	
-	if(view == BUILD){
-		panel = "B";
-	}
-	
-	for(var i = 0; i < arrayIn.length; i++){
-		document.getElementById(panel+i).className = "blockStack " + arrayIn[i];
-	}
+	creditDisplay.innerHTML = "Total credits: " + credits[currentQuestion];
 }
 
 function highlight(element){
@@ -109,7 +117,8 @@ function doRepeat(){
 					marked.push(0);
 				}
 			}
-			drawArray(buildPatterns[currentQuestion], BUILD);
+			credits[currentQuestion]--;
+			update(buildPatterns[currentQuestion], BUILD);
 		}
 		else alert("Select colours to repeat from 'build' field.");
 	}
@@ -123,7 +132,8 @@ function addColor(element){
 	if(buildPatterns[currentQuestion].length < givenPatterns[currentQuestion].length){
 		buildPatterns[currentQuestion].push(element.className.split(" ")[1]);
 		marked.push(0);
-		drawArray(buildPatterns[currentQuestion], BUILD);
+		credits[currentQuestion] -= 2;
+		update(buildPatterns[currentQuestion], BUILD);
 	}
 	else alert("Build stack is full");
 }
