@@ -11,6 +11,8 @@
 
 var credits = [];
 
+var optimal = [95,96];
+
 //Patterns to be constructed
 var givenPatterns = [
 						["purple", "orange", "green", "orange", "green", "orange", "green"],	//Question 1
@@ -84,6 +86,18 @@ function update(){	//Called each time an action is performed
 		currentQuestion++;
 		if(currentQuestion < givenPatterns.length){
 			doQuestion();
+		}
+		else{
+			var resultsWindow = document.getElementById("results");
+			var divs = [];
+			
+			resultsWindow.style.visibility = "visible";
+			
+			for(var i = 0; i < givenPatterns.length; i++){
+				divs[i] = document.createElement("DIV");
+				divs[i].innerHTML = "Question " + (i+1) + ":\t" + credits[i];
+				resultsWindow.appendChild(divs[i]);
+			}
 		}
 	}
 }
