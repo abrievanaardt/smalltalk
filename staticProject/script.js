@@ -358,5 +358,40 @@ buttonDiv.appendChild(btnSubmit);
 articleElement.appendChild(buttonDiv);
 
 btnSubmit.onclick =  function(){
-    articleElement.innerHTML = "";
+    logicUI();
+}
+
+// Score Page UI
+function logicUI() {
+    //Getting DOM elements
+    var titleElement = document.getElementsByTagName('header')[0];
+    var navPane = document.getElementsByTagName('nav')[0];
+    var footerPane = document.getElementsByTagName('footer')[0];
+
+	var evalCategory = ["Variables and Memory Locations", "Control Structures (Selection, Iteration, Sequence)", "Data Structures"];
+	
+    titleElement.innerHTML = "<h1>Score</h1>";
+	articleElement.innerHTML = "<h3>Question 1: " + scoreQ1 + 
+	"% ("+ evalCategory[0] +")<br>Question 2: " + scoreQ2 + "% ("+ evalCategory[1] +")<br>Question 3: " + scoreQ3 + "% ("+ evalCategory[2] +")<br><br>" 
+	+ "Average Score: " + (scoreQ1 + scoreQ2 + scoreQ3) / 3 + "%</h3>";
+	
+	
+	var scoresList = [scoreQ1, scoreQ2, scoreQ3];
+	
+	for(index = 0; index < scoresList.length; index++){
+		var curScore = scoresList[index];
+		if(curScore < 55){
+			articleElement.innerHTML += "<h3>" + evalCategory[index] + " needs attention.<br></h3>";
+		}
+	}
+	
+	var radarDiv = protoDivCleared.cloneNode(true);
+	radarDiv.style.backgroundImage = "url('images//radar.gif')";
+	radarDiv.style.backgroundSize = "400px 242px";
+	radarDiv.style.height = "242px";
+	radarDiv.style.backgroundPosition = "center";
+	radarDiv.style.backgroundRepeat = "no-repeat";
+	
+	articleElement.appendChild(radarDiv);
+	
 }
