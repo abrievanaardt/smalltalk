@@ -1,5 +1,5 @@
 ﻿body {
-    background-color:black;
+    background-color:#737373;
 }
 #container {
     margin-left:auto;
@@ -11,8 +11,17 @@
 }
 
 header {
-    text-align:center;
+    text-align: center;
     padding: 5px;
+    background-image: url('../images/bbd-logo.png');
+    background-repeat:no-repeat;
+    background-size:150px 65px;
+    padding-top:35px;
+    border-top-left-radius:8px;
+}
+h3{
+    padding:5px;
+    margin:5px;
 }
 
 article {
@@ -30,9 +39,10 @@ aside {
 
 nav, footer {
     height:40px;
-    background-color:cadetblue;
+    background-color:#c9302c;
     clear:both;
 	text-align:center;
+	padding:10px;
 }
 footer {
     border-bottom-left-radius:8px;

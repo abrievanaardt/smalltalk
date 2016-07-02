@@ -1,3 +1,5 @@
+/// <reference path="../smallTalkAptitude/index.html" />
+/// <reference path="../smallTalkAptitude/index.html" />
 // QUESTION 1
 var boxes = [["a", "A", "Red", "answerA"], ["b", "B", "Blue", "answerB"], ["c", "C", "Green", "answerC"]];
 
@@ -15,6 +17,7 @@ function hr() {
     var element = document.createElement('hr');
     element.style.display = "block";
     element.style.border = "1px solid black";
+    element.style.clear = "both";
     return element.cloneNode(true);
 }
 
@@ -118,7 +121,6 @@ articleElement.appendChild(answerElement);
 
 articleElement.appendChild(lineBreak());
 articleElement.appendChild(lineBreak());
-articleElement.appendChild(lineBreak());
 
 
 /**
@@ -196,7 +198,7 @@ articleElement.appendChild(q2QuestionDiv);
 articleElement.appendChild(lineBreak())
 
 var keys = [23, 11, 7, 13, 30, 17, 26, 3, 9, 27];
-var word = "NQOBIZWE";
+
 var keysString = "{";
 for (index = 0; index < keys.length; index++) {
     keysString += keys[index];
@@ -366,14 +368,15 @@ btnSubmit.onclick =  function(){
 //Logic function
 
 var scoreQ1, scoreQ2, scoreQ3;
-
+var arrQ1Ans;
+var arrQ3Ans;
 function logic(){
     var score = 0;
     var ansBoxA = document.getElementById("answerA").value;
     var ansBoxB = document.getElementById("answerB").value;
     var ansBoxC = document.getElementById("answerC").value;
     var arrQ1In = [ansBoxA, ansBoxB, ansBoxC];
-    var arrQ1Ans = [9, 14, 13];
+    arrQ1Ans = [9, 14, 13];
     var totalQ1 = 0;
     for (var i = 0; i<3; i++){
         if (arrQ1In[i] == arrQ1Ans[i]){
@@ -411,7 +414,7 @@ function logic(){
     
     score = 0;
     var arrQ3In = [];
-    var arrQ3Ans = [22, 12, 33, 10, 22, 30, 47, 1, 'I', 12, 22, 27, 32, 46, 58];
+    arrQ3Ans = [22, 12, 33, 10, 22, 30, 47, 1, 'I', 12, 22, 27, 32, 46, 58];
     //arrQ3In.push("a")
     for (var i=0; i<15; i++){
         var letter = String.fromCharCode(i+65);
@@ -435,8 +438,13 @@ function logicUI() {
 	
 	var averageScore = (scoreQ1 + scoreQ2 + scoreQ3) / 3;
 	
-    titleElement.innerHTML = "<h1>Score</h1>";
-	articleElement.innerHTML = "<h3>Question 1: " + scoreQ1.toFixed(2) + 
+	titleElement.innerHTML = "<h1>Score</h1>";
+
+	var end = new Date();
+
+	articleElement.innerHTML = "<h3 style=\"color:#398439\">Duration: " + duration(start, end) + "  </h3>";
+    
+	articleElement.innerHTML += "<h3>Question 1: " + scoreQ1.toFixed(2) + 
 	"% ("+ evalCategory[0] +")<br>Question 2: " + scoreQ2.toFixed(2) + "% ("+ evalCategory[1] +")<br>Question 3: " + scoreQ3.toFixed(2) + "% ("+ evalCategory[2] +")<br><br>" 
 	+ "Average Score: " + averageScore.toFixed(2) + "%<br>(" + ((averageScore < 55) ? "Your chances of becoming a good Programmer are slim" : (averageScore < 75) ? "Programming is not your strength, but you have potential" : "Programming is your calling") + ")</h3>";
 	
@@ -447,7 +455,7 @@ function logicUI() {
 	for(index = 0; index < scoresList.length; index++){
 		var curScore = scoresList[index];
 		if(curScore < 55){
-			articleElement.innerHTML += "<h3 style=\"color:red\">" + evalCategory[index] + " need attention.<br></h3>";
+			articleElement.innerHTML += "<h3 style=\"color:red\">" + evalCategory[index] + " need attention.</h3>";
 		}
 	}
 	
@@ -487,11 +495,12 @@ function logicUI() {
 	}
 
 	btnRetry.onclick = function(){
-		window.location.href = 'index.html';
+	    window.location.href = 'index.html';
+
 	}
 
 	btnExit.onclick = function(){
-		window.open('', '_self', '');
+	    var curWindow = window;
 		window.close();
 	}
 }
@@ -518,3 +527,22 @@ startTime();
 var timeDisplay = document.createElement('label');
 timeDisplay.id = "clock";
 timeDisplay.style.fontSize = "14px";
+
+function duration(start, end) {
+    var sS = start.getSeconds(), sM = start.getMinutes(), sH = start.getHours();
+    var eS = end.getSeconds(), eM = end.getMinutes(), eH = end.getHours();
+
+    if (eS < sS) {
+        eM - 1;
+        eS += 60;
+    }
+    if (eM < sM) {
+        eH - 1;
+        eM += 60;
+    }
+    
+    var sDif = eS - sS, mDif = eM - sM, hDif = eH - sH;
+    return checkTime(hDif) + ":" + checkTime(mDif) + ":" + checkTime(sDif);
+}
+
+var start = new Date();
