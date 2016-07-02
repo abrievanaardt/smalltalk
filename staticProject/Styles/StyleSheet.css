@@ -32,7 +32,7 @@ nav, footer {
     height:40px;
     background-color:cadetblue;
     clear:both;
-	align:center;
+	text-align:center;
 }
 footer {
     border-bottom-left-radius:8px;

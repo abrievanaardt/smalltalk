@@ -495,6 +495,9 @@ function logicUI() {
 		window.close();
 	}
 }
+
+var time = document.getElementById('time');
+
 function startTime() {
     var today = new Date();
     var h = today.getHours();
@@ -502,13 +505,15 @@ function startTime() {
     var s = today.getSeconds();
     m = checkTime(m);
     s = checkTime(s);
-    document.getElementById('clock').innerHTML = h + ":" + m + ":" + s;
+    time.innerText = h + ":" + m + ":" + s;
     var t = setTimeout(function () { startTime() }, 500);
 }
 function checkTime(i) {
     if (i < 10) { i = "0" + i }; // adds zero in front of numbers < 10
     return i;
 }
+
+startTime();
 
 var timeDisplay = document.createElement('label');
 timeDisplay.id = "clock";
