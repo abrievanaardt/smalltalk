@@ -13,21 +13,21 @@
         <noscript>
         <p>JavaScript is required to use this page.</p>
         </noscript>
-		
+
         <div id="holder">
             <div id="heading">
                 <h1 id="currentQuestion">Question One</h1>
 				<div id="credits">
 					Total Credits: 100
 				</div>
-                <div id="instructions">
-                    <ul>
+        <div id="instructions">
+          <ul>
 						<li>Use the coloured squares at the top of the tool box to add a colour to the 'build' stack.</li>
 						<li>Use the 'repeat' function to place selected squares from the build stack ontop of the stack.</li>
 						<li>Use the 'switch' function to replace the selected colour on the bottom left of the tool box with the colour on the bottom right.</li>
 					</ul>
-                </div>
-            </div>
+        </div>
+        </div>
 
             <div id="tools">
                 <div id="colourSelect">
@@ -41,9 +41,12 @@
                     <div class="blockTool purple" onclick="addColor(this)">2</div>
                     <div class="blockTool blank"></div>
                 </div>
+                <div>
                 <input type="button" value="Repeat (1)" class="toolButton" onclick="doRepeat()"></input>
                 <input type="button" value="Switch (1)" class="toolButton" onclick="doSwitch()"></input>
-                <div id="containerFrom" class="switchPick">
+                <input type="button" value="Reset" class="toolButton" onclick="resetQuestion()"/>
+              </div>
+            <div id="containerFrom" class="switchPick">
                     <div class="blockPick red" onclick="fromColor(this)"></div>
                     <div class="blockPick orange" onclick="fromColor(this)"></div>
                     <div class="blockPick yellow" onclick="fromColor(this)"></div>
@@ -93,10 +96,8 @@
                 <div class="blockStack blank" id="G0"></div>
             </div>
         </div>
-        <div id="resetButton">
-            <input type="button" value="Reset" onclick="resetQuestion()"/>
-        </div>
-        
+
+
         <div id="cover">
             <div id="results"></div>
         </div>
