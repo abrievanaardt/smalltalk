@@ -15,16 +15,22 @@ html,body {
 	float: left;
 	width: 30%;
 	height: 80%;
-	margin-left: 20px;
+	margin-left: 2.5%;
 }
-
-
 
 #currentQuestion {
 	float:left;
-	width:50%;
+	width:30%;
 	text-align: center;
 	text-decoration: underline;
+	margin-left: 2.5%;
+	margin-top: 2.5%;
+}
+
+#credits{
+	float: left;
+	width: 10%;
+	margin-top: 2.5%;
 }
 
 #instructions {

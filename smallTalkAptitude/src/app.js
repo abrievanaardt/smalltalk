@@ -1,35 +1,24 @@
-/*
-	CSS colours:
-		red
-		orange
-		yellow
-		green
-		blue
-		indigo
-		purple
-*/
-
 var credits = [];
 
 var optimal = [];
 
 //Patterns to be constructed
 var givenPatterns = [
-						["purple", "orange", "green", "orange", "green", "orange", "green"],		//Question 1
-						["blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue"],	//Question 2
-						["green", "green", "red", "green", "green", "blue"],						//Question 3
-						["red", "orange", "green", "orange", "orange", "green", "orange"],	//Question 4
-						["red", "orange", "green", "orange", "orange", "green", "orange"]	//Question 5
+						["purple", "orange", "green", "orange", "green", "orange", "green"],					//Question 1
+						["blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue"],				//Question 2
+						["yellow", "purple", "blue", "purple", "blue", "purple", "blue", "purple", "blue"],		//Question 3
+						["red", "orange", "green", "orange", "orange", "green", "orange"],						//Question 4
+						["green", "green", "red", "green", "green", "blue"]										//Question 5
 					];
 					
 //Patterns being constructed
 var initBuildPatterns = [
-						["purple"],	//Question 1
-						[],			//Question 2
-						["red", "red", "green", "blue", "blue", "yellow"],	//Question 3
-						["red", "orange", "green", "orange", "orange", "green", "orange"],	//Question 4
-						["red", "orange", "green", "orange", "orange", "green", "orange"]	//Question 5
-					];
+							["purple"],																//Question 1
+							[],																		//Question 2
+							[],																		//Question 3
+							["yellow", "orange", "purple", "orange", "orange", "purple", "orange"],	//Question 4
+							["red", "red", "green", "blue", "blue", "yellow"]						//Question 5
+						];
 	
 
 var buildPatterns = [];
@@ -150,10 +139,12 @@ function highlight(element){
 	if(element.className != "blockStack blank"){
 		if( (marked[index] == 1) && ( (index-1 < 0) || (index+1 >= buildPatterns[currentQuestion].length) || (marked[index+1] == 0)  || (marked[index-1] == 0) )){
 			element.style.border = "0px";
+			element.style.height = "45px";
 			marked[parseInt(element.id.charAt(1))] = 0;
 		}
 		else	if( (empty(marked)) || (marked[parseInt(element.id.charAt(1))+1] == 1) || (marked[parseInt(element.id.charAt(1))-1] == 1) ){
-					element.style.border = "1px solid black";
+					element.style.border = "2px solid black";
+					element.style.height = "41px";
 					marked[parseInt(element.id.charAt(1))] = 1;
 				}	
 				else alert("Only adjacent squares can be selected");
@@ -163,15 +154,31 @@ function highlight(element){
 function fromColor(element){
 	if(fromColorVar == null){
 		fromColorVar = element.className.split(" ")[1];
-		element.style.border = "1px solid black";
+		element.style.border = "2px solid black";
+		element.style.height = "41px";
+		element.style.width = "41px";
 	}
+	else 	if(element.className.split(" ")[1] == fromColorVar){
+				fromColorVar = null;
+				element.style.border = "0px";
+				element.style.height = "45px";
+				element.style.width = "45px";
+			}
 }
 
 function toColor(element){
 	if(toColorVar == null){
 		toColorVar = element.className.split(" ")[1];
-		element.style.border = "1px solid black";
+		element.style.border = "2px solid black";
+		element.style.height = "41px";
+		element.style.width = "41px";
 	}
+	else 	if(element.className.split(" ")[1] == toColorVar){
+				toColorVar = null;
+				element.style.border = "0px";
+				element.style.height = "45px";
+				element.style.width = "45px";
+			}
 }
 
 function doSwitch(){
@@ -196,6 +203,8 @@ function clearToolHighlights(){
 	
 	for(var i = 0; i < toClear.length; i++){
 		toClear[i].style.border = "0px";
+		toClear[i].style.width = "45px";
+		toClear[i].style.height = "45px";
 	}
 }
 
@@ -251,20 +260,20 @@ function addColor(element){
 }
 
 function resetQuestion(){
-    credits[currentQuestion] = 100;    
+		credits[currentQuestion] = 100;    
+		
+		for(var i = 0; i < buildPatterns[currentQuestion].length; i++){
+			document.getElementById("B"+i).className = "blockStack blank";
+			document.getElementById("B"+i).style.border = "0px";
+			document.getElementById("B"+i).style.height = "45px";
+		}
     
-    for(var i = 0; i < buildPatterns[currentQuestion].length; i++){
-	document.getElementById("B"+i).className = "blockStack blank";
-    }
-    
-    buildPatterns[currentQuestion] = [];
-    for (j = 0; j < initBuildPatterns[currentQuestion].length; j++){
-        buildPatterns[currentQuestion].push(initBuildPatterns[currentQuestion][j]);        
-    }
-    
-    
-        
-    newMarkedArray();    
-    update();
-    update();
+		buildPatterns[currentQuestion] = [];
+		
+		for (j = 0; j < initBuildPatterns[currentQuestion].length; j++){
+			buildPatterns[currentQuestion].push(initBuildPatterns[currentQuestion][j]);        
+		}
+		
+		newMarkedArray();    
+		update();
 }
