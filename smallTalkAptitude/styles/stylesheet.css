@@ -18,9 +18,13 @@ html,body {
 	margin-left: 2.5%;
 }
 
+#build, #given{
+	overflow-y:scroll;
+}
+
 #currentQuestion {
 	float:left;
-	width:30%;
+	width:20%;
 	text-align: center;
 	text-decoration: underline;
 	margin-left: 2.5%;
@@ -28,8 +32,9 @@ html,body {
 }
 
 #credits{
+	font-size: 20pt;
 	float: left;
-	width: 10%;
+	width: 20%;
 	margin-top: 2.5%;
 }
 
