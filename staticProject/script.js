@@ -189,7 +189,7 @@ q2QuestionLabel.innerHTML = "Given the table above where the first row values " 
     "represent the index or position of the character in a String formed by the " +
     "inorder sequence of the characters in the second row. Follow the instructions below to construct a word. <br>" +
     "<b>Rule: </b> Follow instructions in sequence line by line, starting from line one. If instructed to jump to a " +
-    " given line, start off by following that instruction, and refollow instrunctions from that line. After the last" +
+    " given line, start off by following that instruction, and refollow instructions from that line. After the last" +
     " instruction line, use the option boxes to create the word formed by following the instruction:";
 q2QuestionDiv.appendChild(q2QuestionLabel);
 articleElement.appendChild(q2QuestionDiv);
@@ -216,8 +216,8 @@ var codeLines = ["Move to instruction line 2", "Given a set of <b><i>i</i></b> v
     " using each <b><i>i</i></b> values with each iteration (instruction to be given below).",
     "<b><i>If</i></b> there is still a value <b><i>i</i></b> in the set given in 2 not used in the equation below, move to the instruction line that follows the current one, otherwise <b><i>Jump</i></b> to instruction line 10.",
     "Calculate result <b><i>r</i></b> using the equation given in 5 and the <b><i>i</i></b> values currently in sequence (use just one <b><i>i</i></b> value, one that is current in sequence).",
-    "Get character that is below the number equaling to the <b><i>r</i></b> value calculated above (Note: by below meaning the number and character are in same column). " +
-    "Add the character value chosen above to the word <b><i>w</i></b> such that it adds up to the characters already in the word (concatinate).",
+    "Get character that is below the number equal to the <b><i>r</i></b> value calculated above (Note: by below meaning the number and character are in same column). " +
+    "Add the character value chosen above to the word <b><i>w</i></b> such that it adds up to the characters already in the word (concatenate).",
     "<b><i>Jump</i></b> back to instruction line 6, and this time use the next <b><i>i</i></b> value in the set when following instructions.",
     "Iteration is now complete, meaning you have used all <b><i>i</i></b> values in the set in line 2 in the equation given in line 5. " +
     "Now create the word formed by following the instruction using the option boxes by order of the word such that the word and the combinations selected below form the same word."];
@@ -310,8 +310,8 @@ for (index = 0; index < treeNumbers.length; index++) {
         numberLabel.innerHTML += "}<br>";
     }
 }
-numberLabel.innerHTML += "Insert these numbers to the tree using the rules defined above" +
-    ", then use the selection boxes below to indicated the circles in which each number will be located. " +
+numberLabel.innerHTML += "Insert these numbers into the tree using the rules defined above" +
+    ", then use the selection boxes below to indicate the circles in which each number will be located. " +
     "Note that one circle will be left empty, this should be indicated by having no value assigned to the circle and the letter in the circle being left as the answer.<br>";
 articleElement.appendChild(numberLabel);
 
