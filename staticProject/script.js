@@ -75,7 +75,7 @@ subtitleElement.style.clear = "both";
 var questionElement = protoLabel.cloneNode(true);
 questionElement.innerHTML = "Given the boxes above and the following information, give the " +
     "resulting number of items in each box at the end of the scenario " +
-    "described below:<br><br>" + 
+    "described below:<br><br>" +
     "You start with <b>23</b> apples.<br>" +
     "<b>7</b> apples are placed in box <b>A</b>, <b>9</b> in box <b>C</b> and the remainder in box <b>B</b>.<br>" +
     "<b>12</b> more apples are then added to box <b>B</b>.<br>" +
@@ -168,7 +168,7 @@ for (index = 0; index < stringArray.length; index++) {
         tdR1.bgColor = "#0F9C07";
         tdR2.bgColor = "#0F9C07";
     }
-   
+
     row1.appendChild(tdR1);
     row2.appendChild(tdR2);
 }
@@ -385,7 +385,7 @@ function logic(){
         score++;
     }
     scoreQ1 = (score/4)*100;
-    
+
     score=0;
     var c1 = document.getElementById("char1").value;
     var c2 = document.getElementById("char2").value;
@@ -408,7 +408,7 @@ function logic(){
         score++;
     }
     scoreQ2 = (score/11)*100;
-    
+
     score = 0;
     var arrQ3In = [];
     arrQ3Ans = [22, 12, 33, 10, 22, 30, 47, 1, 'I', 12, 22, 27, 32, 46, 58];
@@ -432,30 +432,30 @@ function logicUI() {
     var footerPane = document.getElementsByTagName('footer')[0];
 
 	var evalCategory = ["Variables and Memory Locations", "Control Structures (Selection, Iteration, Sequence)", "Data Structures"];
-	
+
 	var averageScore = (scoreQ1 + scoreQ2 + scoreQ3) / 3;
-	
+
 	titleElement.innerHTML = "<h1>Score</h1>";
 
 	var end = new Date();
 
 	articleElement.innerHTML = "<h3 style=\"color:#398439\">Duration: " + duration(start, end) + "  </h3>";
-    
-	articleElement.innerHTML += "<h3>Question 1: " + scoreQ1.toFixed(2) + 
-	"% ("+ evalCategory[0] +")<br>Question 2: " + scoreQ2.toFixed(2) + "% ("+ evalCategory[1] +")<br>Question 3: " + scoreQ3.toFixed(2) + "% ("+ evalCategory[2] +")<br><br>" 
+
+	articleElement.innerHTML += "<h3>Question 1: " + scoreQ1.toFixed(2) +
+	"% ("+ evalCategory[0] +")<br>Question 2: " + scoreQ2.toFixed(2) + "% ("+ evalCategory[1] +")<br>Question 3: " + scoreQ3.toFixed(2) + "% ("+ evalCategory[2] +")<br><br>"
 	+ "Average Score: " + averageScore.toFixed(2) + "%<br>(" + ((averageScore < 55) ? "Your chances of becoming a good Programmer are slim" : (averageScore < 75) ? "Programming is not your strength, but you have potential" : "Programming is your calling") + ")</h3>";
-	
+
 	articleElement.style.width = "100%";
-	
+
 	var scoresList = [scoreQ1, scoreQ2, scoreQ3];
-	
+
 	for(index = 0; index < scoresList.length; index++){
 		var curScore = scoresList[index];
 		if(curScore < 55){
 			articleElement.innerHTML += "<h3 style=\"color:red\">" + evalCategory[index] + " need attention.</h3>";
 		}
 	}
-	
+
 	var radarDiv = protoDivCleared.cloneNode(true);
 	radarDiv.style.backgroundImage = "url('images//radar.gif')";
 	radarDiv.style.backgroundSize = "400px 242px";
@@ -463,10 +463,10 @@ function logicUI() {
 	radarDiv.style.backgroundPosition = "center";
 	radarDiv.style.backgroundRepeat = "no-repeat";
 	radarDiv.style.width = "100%";
-	
+
 	articleElement.appendChild(radarDiv);
 	articleElement.innerHTML += "<br>";
-	
+
 	var completeDiv = protoDivCleared.cloneNode(true);
 	completeDiv.align = "center";
 	var btnBonus = document.createElement('button');
@@ -475,20 +475,20 @@ function logicUI() {
 	btnBonus.style.margin = "4px";
 	var btnRetry = btnBonus.cloneNode(true);
 	var btnExit = btnBonus.cloneNode(true);
-	
+
 	completeDiv.style.width = "100%";
-	
+
 	btnBonus.innerHTML = "<h1>Bonus</h1>";
 	btnRetry.innerHTML = "<h1>Retry</h1>";
 	btnExit.innerHTML = "<h1>Exit</h1>";
-	
+
 	completeDiv.appendChild(btnRetry);
 	completeDiv.appendChild(btnBonus);
 	completeDiv.appendChild(btnExit);
-	
+
 	articleElement.appendChild(completeDiv);
 	btnBonus.onclick = function(){
-		window.location.href = 'index2.html';
+		window.location.href = 'smallTalkAptitude/puzzle.html';
 	}
 
 	btnRetry.onclick = function(){
@@ -537,7 +537,7 @@ function duration(start, end) {
         eH - 1;
         eM += 60;
     }
-    
+
     var sDif = eS - sS, mDif = eM - sM, hDif = eH - sH;
     return checkTime(hDif) + ":" + checkTime(mDif) + ":" + checkTime(sDif);
 }
