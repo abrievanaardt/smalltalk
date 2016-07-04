@@ -75,6 +75,7 @@ function newMarkedArray(){
 function clearAllStacks(){
 	for(var i = 0; i < 10; i++){
 		document.getElementById("B"+i).style.border = "0px";
+		document.getElementById("B"+i).style.height = "45px";
 		document.getElementById("B"+i).className = "blockStack " + "blank";
 		document.getElementById("G"+i).className = "blockStack " + "blank";
 	}
@@ -110,11 +111,13 @@ function update(){	//Called each time an action is performed
 
 function checkAnswer(){	
 	if (buildPatterns[currentQuestion].length == givenPatterns[currentQuestion].length){		
+		
 		for(var i = 0; i < buildPatterns[currentQuestion].length; i++){
 			if(buildPatterns[currentQuestion][i] != givenPatterns[currentQuestion][i]){
 				return false;
 			}
 		}
+		
 		
 		return true;
 	}
