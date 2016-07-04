@@ -478,7 +478,7 @@ function logicUI() {
 
 	completeDiv.style.width = "100%";
 
-	btnBonus.innerHTML = "<h1>Bonus</h1>";
+	btnBonus.innerHTML = "<h1>Puzzle</h1>";
 	btnRetry.innerHTML = "<h1>Retry</h1>";
 	btnExit.innerHTML = "<h1>Exit</h1>";
 
