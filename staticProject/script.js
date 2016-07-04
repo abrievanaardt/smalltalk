@@ -71,8 +71,7 @@ headingElement.style.clear = "both";
 headingElement.innerText = "Question 1";
 var subtitleElement = document.createElement('h4');
 subtitleElement.style.clear = "both";
-subtitleElement.innerText = "This question test your understanding and ability of using " +
-    "storage locations, thus memory locations and pointers.";
+//subtitleElement.innerText = "This question test your understanding and ability of using " + "storage locations, thus memory locations and pointers.";
 var questionElement = protoLabel.cloneNode(true);
 questionElement.innerHTML = "Given the boxes above and the following information, give the " +
     "resulting number of items in each box at the end of the scenario " +
@@ -137,8 +136,7 @@ var headingQ2 = headingElement.cloneNode(true);
 headingQ2.innerText = "Question 2"; // if item is cloned, intellisense may not show options
 
 var subtitle2 = subtitleElement.cloneNode(true);
-subtitle2.innerHTML = "This question tests your understanding of Control Structures, " +
-    "in this context compise of the follow:<ul><li>Selection</li><li>Iteration</li><li>Sequence</li></ul>";
+//subtitle2.innerHTML = "This question tests your understanding of Control Structures, " + "in this context compise of the follow:<ul><li>Selection</li><li>Iteration</li><li>Sequence</li></ul>";
 
 articleElement.appendChild(hr());
 articleElement.appendChild(headingQ2);
@@ -190,8 +188,8 @@ var q2QuestionLabel = protoLabel.cloneNode(true);
 q2QuestionLabel.innerHTML = "Given the table above where the first row values " +
     "represent the index or position of the character in a String formed by the " +
     "inorder sequence of the characters in the second row. Follow the instructions below to construct a word. <br>" +
-    "<b>Rule: </b> Follow instruction in sequential line by line, starting from line one. If instructed to jump to a " +
-    " given line, start of by following that instruction, and refollow instrunction from that line. After the last" +
+    "<b>Rule: </b> Follow instructions in sequence line by line, starting from line one. If instructed to jump to a " +
+    " given line, start off by following that instruction, and refollow instrunctions from that line. After the last" +
     " instruction line, use the option boxes to create the word formed by following the instruction:";
 q2QuestionDiv.appendChild(q2QuestionLabel);
 articleElement.appendChild(q2QuestionDiv);
@@ -212,16 +210,16 @@ for (index = 0; index < keys.length; index++) {
 var N = stringArray.length;
 
 var codeLines = ["Move to instruction line 2", "Given a set of <b><i>i</i></b> values: " + keysString,
-    "<b><i>N</i></b> is the number of elements in table which is " + N + " and will be used in an equation to follow. ",
+    "<b><i>N</i></b> is the number of elements in the table which is " + N + " and will be used in an equation to follow. ",
     "Given the equation: <b>(<i>i</i> + 2) % N</b> where % is the modulo operator.",
     "Starting with the first value <b><i>i</i></b> in the set given in 2 and moving in sequential order from " + keys[0] + " to " + keys[keys.length - 1] +
     " using each <b><i>i</i></b> values with each iteration (instruction to be given below).",
-    "<b><i>If</i></b> there is still a value <b><i>i</i></b> in set given in 2 not used in the equation below, move to the instruction line that follows the current one, otherwise <b><i>Jump</i></b> to tinstruction line 10",
+    "<b><i>If</i></b> there is still a value <b><i>i</i></b> in the set given in 2 not used in the equation below, move to the instruction line that follows the current one, otherwise <b><i>Jump</i></b> to instruction line 10.",
     "Calculate result <b><i>r</i></b> using the equation given in 5 and the <b><i>i</i></b> values currently in sequence (use just one <b><i>i</i></b> value, one that is current in sequence).",
-    "Get character that is below the number equaling to the <b><i>r</i></b> value calculated above (Note: by below meaning the number and character are in same column)." +
-    "Add the character value chosen above to the word <b><i>w</i></b> such that it add up to the characters already in the word (concatinate).",
-    "<b><i>Jump</i></b> back to instruction line 6, and this time use the next <b><i>i</i></b> value in the set when following instructions",
-    "Iteration is now complete, meaning you have used all <b><i>i</i></b> values in the set in line 2 in the equation given in like 5. " +
+    "Get character that is below the number equaling to the <b><i>r</i></b> value calculated above (Note: by below meaning the number and character are in same column). " +
+    "Add the character value chosen above to the word <b><i>w</i></b> such that it adds up to the characters already in the word (concatinate).",
+    "<b><i>Jump</i></b> back to instruction line 6, and this time use the next <b><i>i</i></b> value in the set when following instructions.",
+    "Iteration is now complete, meaning you have used all <b><i>i</i></b> values in the set in line 2 in the equation given in line 5. " +
     "Now create the word formed by following the instruction using the option boxes by order of the word such that the word and the combinations selected below form the same word."];
 var q2SudoDiv = protoDivCleared.cloneNode(true);
 
@@ -277,8 +275,7 @@ articleElement.appendChild(hr());
 articleElement.appendChild(q3Heading);
 
 var q3Subheading = subtitleElement.cloneNode(true);
-q3Subheading.innerText = "The below question test your understanding of data structure and basic traversal. " +
-    "The tree structure given below is important for answering the question that follow below it.";
+//q3Subheading.innerText = "The below question test your understanding of data structure and basic traversal. " + "The tree structure given below is important for answering the question that follow below it.";
 
 articleElement.appendChild(q3Subheading);
 
